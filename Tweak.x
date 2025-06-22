@@ -1,3 +1,4 @@
+// it's supposed to hide the rufus ai thing on an item but it doesn't and I don't feel like making it work so maybe eventually I will
 // kinda shitty code - it kept hiding all the task bar buttons instead of just one so chatgpt did come up with the rightmostbutton thing
 
 #import <UIKit/UIKit.h>
