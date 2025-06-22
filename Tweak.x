@@ -1,3 +1,5 @@
+// kinda shitty code - it kept hiding all the task bar buttons instead of just one so chatgpt did come up with the rightmostbutton thing
+
 #import <UIKit/UIKit.h>
 #import <rootless.h>
 
@@ -44,6 +46,16 @@
     for (UIView *subview in self.subviews) {
         if ([subview isKindOfClass:NSClassFromString(@"UITabBarSwappableImageView")]) {
             if (CGRectGetMinX(subview.frame) >= maxX - 10) {
+                subview.hidden = YES;
+                subview.userInteractionEnabled = NO;
+            }
+        }
+    }
+    Class BottomSheetVC = NSClassFromString(@"AppCXNativeBottomSheetViewController");
+    if (BottomSheetVC) {
+        for (UIView *subview in self.subviews) {
+            UIResponder *responder = subview.nextResponder;
+            if ([responder isKindOfClass:BottomSheetVC]) {
                 subview.hidden = YES;
                 subview.userInteractionEnabled = NO;
             }
